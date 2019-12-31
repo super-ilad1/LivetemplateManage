@@ -1,0 +1,213 @@
+h1 {
+    color: red;
+}
+
+/**/
+/*[v-cloak] {*/
+/*    display: none;*/
+
+/*}*/
+:root {
+    --gap: 60px;
+    --nav_width: 250px;
+}
+
+.nav_bar {
+    position: absolute;
+    border-right: 1px #e6e6e6 solid;
+    width: var(--nav_width);
+    bottom: 0;
+    top: var(--gap);
+    left: 0;
+    overflow-y: scroll;
+    background-color: #fdfeff;
+}
+
+.nav_bar::-webkit-scrollbar {
+    display: none;
+}
+
+.nav_bar a {
+    font-size: 20px;
+    position: relative;
+
+    color: #325467;
+
+}
+
+.nav_bar a:hover {
+    background-color: #E7E7E7;
+    color: #7994A4;
+
+}
+
+.nav-item {
+    border-bottom: 1px #e6e6e6 solid;
+}
+
+.header {
+    color: white;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+
+    height: var(--gap);
+    background-color: #1480E6;
+    z-index: 1000;
+}
+
+
+.header a {
+    line-height: 20px;
+    font-size: 30px;
+    position: relative;
+    top: 15px;
+    left: 10px;
+    font-weight: lighter;
+
+
+}
+
+
+/*把下面的添加到css中*/
+[v-cloak] {
+    display: none;
+
+}
+
+/*note sub_header 的css编辑*/
+.sub_header div.Menu {
+    position: absolute;
+    left: var(--nav_width);
+    top: 0;
+    right: 0;
+    height: var(--gap);
+    /*background-color: # ;*/
+}
+
+.titleSearch {
+    background-color: #e7faff;
+}
+
+.titleSearch:hover {
+    background-color: #e7faff;
+}
+
+.menu-notice {
+    text-decoration: underline;
+
+}
+
+.sub_header div.subMenu {
+    position: relative;
+    float: right;
+    display: inline-block;
+    font-size: 20px;
+    z-index: 1001;
+    width: 90px;
+    color: white;
+    left: -30px;
+    border-left: solid 1px #e5e5e5;
+    padding: 15px;
+    text-align: center;
+    box-sizing: border-box;
+    font-weight: lighter;
+    letter-spacing: 1px;
+    background-color: #e6775a;;
+}
+
+.sub_header div.subMenu:last-child {
+    border: none;
+}
+
+
+.sub_header div.subMenu:hover {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    cursor: pointer;
+    border-bottom: solid 3px #ff5141;
+
+
+}
+
+.sub_header div.Menu {
+    position: relative;
+    float: right;
+    display: inline-block;
+    font-size: 20px;
+    z-index: 1001;
+    width: 90px;
+    color: white;
+    left: -30px;
+
+    padding: 15px;
+    text-align: center;
+    box-sizing: border-box;
+    font-weight: lighter;
+    letter-spacing: 1px;
+
+}
+
+.sub_header div.Menu:hover {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    background-color: #226A9F;
+    cursor: pointer;
+    border-bottom: solid 3px #E57623;
+
+}
+
+
+.contents {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 100px;
+    width: var(--nav_width);
+    top: var(--gap);
+    color: white;
+    /*margin: px;*/
+}
+
+.contents li {
+    color: black;
+}
+
+
+.real_content {
+    position: absolute;
+    left: 300px;
+    top: 3px;
+    width: 800px;
+    height: 800px;
+    color: grey;
+
+}
+
+body {
+    overflow-y: hidden;
+}
+
+.content_container {
+    /*overflow-y: scroll;*/
+    position: absolute;
+    right: 0;
+    left: var(--nav_width);
+    bottom: 0;
+    top: var(--gap);
+
+    z-index: 1005;
+}
+
+.content_hide {
+    display: none;
+}
+
+
+.clicked_hightlight {
+    color: red;
+
+}

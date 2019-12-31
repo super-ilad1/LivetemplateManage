@@ -1,0 +1,362 @@
+﻿<!--note 完整的Html-->
+{% load process %}
+<html lang="en">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.common.dev.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/743e100922.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"
+            integrity="sha256-XmdRbTre/3RulhYk/cOBUMpYlaAp2Rpo/s556u0OIKk=" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/abc/bootstrap.css?{% now 'U' %}">
+    <link rel="stylesheet" href="/abc/home.css?{% now 'U' %}">
+    <!--    https://fonts.google.com/?amp;selection.family=ZCOOL+XiaoWei -->
+    <!--    点击上面网站选择字体，快速加载字体-->
+    <link href="https://fonts.googleapis.com/css?family=Mukta+Mahee&display=swap" rel="stylesheet">
+    <!--    code edit的css-->
+    <link rel="stylesheet" href="/abc/codeMirror/codemirror.css?{% now 'U' %}">
+    <!--    code edit的css-->
+
+    <script src="/abc/codeMirror/codemirror.js?{% now 'U' %}"></script>
+    <!--    code edit的mode-->
+
+    <script src="/abc/codeMirror/mode/javascript.js?{% now 'U' %}"></script>
+    <!--    code edit的font-->
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <!--    codemirror vue-->
+    <script src="/abc/codeMirror/vue-codemirror.js"></script>
+    <script src="/abc/codeMirror/fullscreen.js"></script>
+    <link rel="stylesheet" href="/abc/codeMirror/fullscreen.css?{% now 'U' %}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css"
+          integrity="sha256-a2tobsqlbgLsWs7ZVUGgP5IvWZsx8bTNQpzsqCSm5mk=" crossorigin="anonymous"/>
+
+
+    <style>
+        .fontOptimize {
+            font-family: 'Noto Sans SC', sans-serif;
+
+        }
+
+        .fonttitle {
+            font-family: 'Mukta Mahee', sans-serif;
+            letter-spacing: 1px;
+
+
+
+        }
+
+        :target {
+            color: red;
+
+        }
+
+        .display {
+            position: absolute;
+            right: 0;
+            top: 20px;
+            left: 400px;
+
+        }
+
+        .select {
+
+        }
+
+        .title {
+            position: absolute;
+            right: 0;
+            top: 20px;
+            left: 200px;
+
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .backScreen {
+            background-color: black;
+            opacity: 0.2;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 999;
+        }
+
+        .pop {
+            position: absolute;
+            left: 200px;
+            top: 50px;
+            margin: auto;
+            width: 500px;
+            height: 300px;
+            background-color: grey;
+            z-index: 999;
+        }
+
+        .tool {
+            border: solid 1px grey;
+            width: 400px;
+            height: 50px;
+            position: absolute;
+            right: 0;
+            top: 10px;
+            float: right;
+            z-index: 1200;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        input, select {
+            display: block;
+            padding-bottom: 20px;
+            margin-bottom: 5px;
+        }
+
+    </style>
+</head>
+<body class="fontOptimize">
+
+<div class="header">
+
+    <a class="fonttitle"><i class="fas fa-sliders-h"></i> Live Template</a>
+</div>
+
+
+<div id="operate">
+
+
+    <transition name="my" enter-active-class="animated bounceInUp" leave-active-class="animated bounceOut">
+
+        <div v-cloak v-if="saveSuccess" class="alert alert-success m-auto rounded "
+             style="position:absolute;z-index: 99999;bottom:50%;left:43%;height: 50px" role="alert">
+            Save success!
+        </div>
+
+    </transition>
+
+    <!--note 增删查改Html处-->
+    <div class="sub_header">
+
+        <div class="Menu" @click="save" :class="{'menu-notice':MenuSaveNotice}"><a>Save</a></div>
+
+        <div class="Menu"><a>New</a></div>
+
+        <div class="Menu" @click="cancel"><a>Delete</a></div>
+        <div class="Menu" @click="insert"><a>Insert</a></div>
+        <div class="Menu" @click="modelDropdown= !modelDropdown" :class="{'menu-notice':MenuNotice}"><a>Model</a>
+
+
+        </div>
+
+
+        <div class="Menu" @click="copy"><a>Copy</a></div>
+        <!--   将下面这个引入到<head>中去-->
+        <!--        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css"-->
+        <!--              integrity="sha256-a2tobsqlbgLsWs7ZVUGgP5IvWZsx8bTNQpzsqCSm5mk=" crossorigin="anonymous"/>-->
+
+        <!--  点击 https://daneden.github.io/animate.css/  选择指定的css样式 -->
+        <!--        enter-active-class和leave-active-class定义了开始和离开的动画，而且开始的class必须是animated，v-if控制显示，flag是bool-->
+
+
+        <div v-show="modelDropdown" v-cloak>
+            <div class="subMenu" @click="saveModel('Envi')"><a>Envi</a></div>
+
+            <div class="subMenu" @click="saveModel('Name')"><a>Name</a></div>
+            <div class="subMenu" @click="saveModel('Desc')"><a>Desc</a></div>
+            <div class="subMenu" @click="saveModel('Value')"><a>Value</a></div>
+            <div class="subMenu" @click="saveModel('reset')"><a>Reset</a></div>
+        </div>
+    </div>
+
+
+    <div class="content_container" v-cloak>
+        <div class="contents">
+
+            <div class="list-group">
+                <a v-text="title" href="#" style="text-transform: capitalize"
+                   class="list-group-item list-group-item-action active">
+                    Title
+                </a>
+
+
+                <div id="title1">
+
+
+                    <!--note 框架-中间标题-->
+
+                    {% verbatim myblock %}
+                    <a v-cloak v-for="item in contentsList" href="#" id="title"
+                       :class="{'list-group-item':true, 'list-group-item-action':true,'select-one':item.status }"
+                       @click="showContent(item.id)" v-text="item.name"></a>
+
+
+                    {% endverbatim myblock %}
+                </div>
+
+
+            </div>
+
+            <div class="real_content">
+
+                <div id="real_content" class="card border-light" style="width: 63rem;">
+
+                    <!--note  框架-右边正文 -->
+                    {% verbatim myblock %}
+                    <div id="contentPart" v-for="item,i in contentsList">
+
+                        <div v-cloak class="child" v-if="item.status" id="item">
+
+                            <div class="input-group mb-3">
+
+                                <!--note name介绍框-->
+                                <input id="NameInput" type="text" class="form-control"
+                                       spellcheck="false"
+                                       placeholder="Name..." @input="switchMenuSaveNotice(true)"
+                                       aria-label="Recipient's username" aria-describedby="button-addon2"
+                                       v-model="item.name">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button" id="button-addon3">
+                                        Name
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="input-group" style="padding-bottom: 20px">
+
+                                <!--note textarea框-->
+                                <local-codemirror ref="cma"
+
+                                                  style="top: 50px;width:800px;height:500px"
+                                                  v-model="item.value"
+                                                  :key="item.id"
+                                                  :option="cmOptions"
+                                                  @input="onCmInput($event,item.id)">
+                                    @focus="onfocus($event,item.id)">
+                                </local-codemirror>
+
+                                <!--                                <textarea id="textarea" class="form-control" aria-label="With textarea"-->
+                                <!--                                          spellcheck="false"-->
+                                <!--                                          style="font-size:20px;" v-model="item.value" v-text="item.value">function</textarea>-->
+                                <!--                                <label for="textarea2"></label><textarea id="textarea2"></textarea>-->
+
+                            </div>
+
+
+                            <div class="input-group " style="padding-bottom: 20px" v-cloak>
+                                <!--note Envi选择框-->
+                                <select class="custom-select" id="inputGroupSelect04"
+                                        @change="addselect($event,item.id)" v-model="selectedOne"
+                                        aria-label="Example select with button addon">
+
+
+                                    <option v-for="opt in optionList"
+                                            v-text="opt"></option>
+                                    <option v-if="opt==''"
+                                            selected v-text="opt">
+                                    </option>
+
+
+                                </select>
+                                <!--    已有的环境                           -->
+                                <div class="input-group-append" v-cloak>
+                                    <!--                                    <button class="btn btn-outline-secondary" type="button" v-for="envione,i in item.envi" v-text="envione"></button>-->
+                                    <button class="btn btn-outline-secondary" type="button" v-for="envione in item.envi"
+                                            v-text="envione" @click="cancelEnvi(item.id,envione)"></button>
+                                    <button class="btn btn-outline-danger" type="button" v-if="item.envi.length==0"
+                                    >None
+                                    </button>
+                                </div>
+                            </div>
+
+
+                            <div class="input-group mb-3">
+                                <!--note description介绍框-->
+
+
+                                <input id="desc" type="text" class="form-control"
+                                       placeholder="Description"
+                                       aria-label="Description"
+                                       aria-describedby="button-addon2" v-model="item.desc"
+                                       @input="switchMenuSaveNotice(true)">
+
+
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">
+                                        Desc
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!--note variable编辑框                            -->
+                            <div class="btn-toolbar mb-3" v-if="item.variables.length!==0" role="toolbar"
+                                 aria-label="Toolbar with button groups">
+                                <div class="btn-group mr-2" role="group" aria-label="First group">
+                                    <button type="button" class="btn btn-outline-danger">Variables</button>
+                                    <button v-for="variable,i in item.variables" type="button"
+                                            class="btn btn-outline-secondary" v-text="variable"></button>
+                                </div>
+                            </div>
+                        </div>
+                        {% endverbatim myblock %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="nav_bar">
+        <div class="input-group mb-3 ">
+            <!--note 搜索框-->
+            <input type="text" class="form-control"
+                   style="height:50px;border: 0;border-bottom: 1px solid #e8e8e8;border-radius: 0;font-size:20px;"
+                   placeholder="Search...." aria-label="Example text with button addon"
+                   aria-describedby="button-addon1" v-model="keyword" @input="searchKeyword">
+            <div class="input-group-append">
+                <button :class="{btn:true ,'btn-outline-light':true , border:true ,'rounded-0':true,titleSearch:ifTitleSearch ,'text-dark':true}"
+                        @click=" ifTitleSearch = !ifTitleSearch;" style="border-right:0" type="button"
+                        id="selectTitleSwitch">T
+
+                </button>
+            </div>
+        </div>
+
+        <div id="navMenu">
+            <ul class="nav flex-column">
+
+                <!--note 框架-左边导航-->
+                {% block nav %}
+
+                {% endblock %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+<script src="/abc/vue.js/?{% now 'U' %}"></script>
+
+
+</html>

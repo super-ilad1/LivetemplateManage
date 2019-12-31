@@ -1,0 +1,68 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src=""></script>
+    <!--    字体加载-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./codemirror.css">
+    <script src="./codemirror.js"></script>
+    <script src="./mode/javascript.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+<body>
+<!--    https://fonts.google.com/?amp;selection.family=ZCOOL+XiaoWei -->
+<!--    点击上面网站选择字体，快速加载字体-->
+
+<textarea id="textarea"></textarea>
+<button onclick="showValue()">GetValue()</button>
+<input id="value" type="text">
+
+<button onclick="setValue()">setValue()</button>
+<button onclick="setmode">setValue()</button>
+
+</body>
+<script>
+    // var myCodeMirror = CodeMirror(document.body, {
+    //     value: "function myScript(){return 100;}\n",
+    //     mode: "javascript",
+    //     lineNumbers: true
+    // });
+
+    var myCodeMirror = CodeMirror.fromTextArea(document.getElementById('textarea'), {
+        mode: "javascript",
+        lineNumbers: true
+    });
+
+
+    //设置高亮
+    // myCodeMirror.getDoc().markText({line: 6, ch: 1}, {
+    //     line: 6,
+    //     ch: 8
+    // }, {
+    //     className: "varableSelected",
+    //
+    // });
+    //设置长宽
+    myCodeMirror.setSize('800px', '300px');
+    // myCodeMirror.markText({line: 1, ch: 2});
+
+    //
+    // function showValue() {
+    //     console.log('click');
+    //
+    //     console.log(myCodeMirror.getValue())
+    //     ;
+    //
+    // }
+    //
+    // function setValue() {
+    //     console.log();
+    //     myCodeMirror.setValue($('#value').val())
+    // }
+
+
+</script>
+
+</html>

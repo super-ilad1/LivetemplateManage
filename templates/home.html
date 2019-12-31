@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+
+{#note 左边导航的显示#}
+{% block nav %}
+
+{#这里时间files是所有的LM文件信息#}
+{% for file in files %}
+<!--note 左边导航编辑处-->
+
+<li class="nav-item" value="'{{ file }}'"  @click="ajaxFor('{% url 'home' file %}','{{ file }}')">
+
+
+    <a class="nav-link active" href="#" style="text-transform: capitalize;font-size: 20px;color: #878787">{{ file }}</a>
+</li>
+
+{% endfor %}
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+

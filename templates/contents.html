@@ -1,0 +1,90 @@
+
+
+{% for key,value in infos.items %}
+
+    <div v-cloak class="child"  v-show="false" ref="content{{ key }}" id="content{{ key }}">
+
+        <div class="input-group mb-3">
+
+            <input id="NameInput" oninput="detectInput();" type="text" class="form-control" spellcheck="false"
+                   placeholder="Recipient's username"
+                   aria-label="Recipient's username" aria-describedby="button-addon2" value="{{ value.name }}">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Name</button>
+            </div>
+        </div>
+
+        {#contengts#}
+        <div class="input-group" style="padding-bottom: 20px;height:400px;">
+
+            <textarea id="textarea" class="form-control" aria-label="With textarea" spellcheck="false"
+                      style="font-size:20px;font-weight: bolder">{{ value.value }}</textarea>
+
+        </div>
+
+        {#    <div class="card-body">#}
+        {#        <h5 class="card-title">Card title</h5>#}
+        {#        <p class="card-text">{{ infos.value }}</p>#}
+        {#    </div>#}
+
+
+        <div class="input-group " style="padding-bottom: 20px">
+            <select class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+
+                {% if value.envi != "" %}
+
+                    <option selected value="{{ value.envi }}">{{ value.envi }}</option>
+
+
+                {% else %}
+                    <option selected></option>
+
+                {% endif %}
+
+
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button">Envi</button>
+            </div>
+        </div>
+
+
+        <div class="input-group mb-3">
+
+            {% if value.desc != "" %}
+
+                <input id="desc" type="text" class="form-control" placeholder="Recipient's username"
+                       aria-label="Recipient's username"
+                       aria-describedby="button-addon2" value="{{ value.desc }}">
+
+            {% else %}
+                <input id="desc" type="text" class="form-control" placeholder="Recipient's username"
+                       aria-label="Recipient's username"
+                       aria-describedby="button-addon2" value="">
+
+            {% endif %}
+
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Desc</button>
+            </div>
+        </div>
+
+
+        {#        <div class="card-footer text-muted">#}
+        {#            <a>Desc:{{ infos.desc }}</a>#}
+        {#        </div>#}
+
+
+        {#        <div class="hide" id="{{ key }}">#}
+        {#            <p>value:#}
+        {#            <p id="value">{{ values.value }}</p>#}
+        {#            <p>desc: {{ values.desc }}</p>#}
+        {#            <p>envi: {{ values.envi }}</p>#}
+        {#        </div>#}
+    </div>
+
+{% endfor %}
+
+

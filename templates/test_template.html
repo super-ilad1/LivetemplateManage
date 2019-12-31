@@ -1,0 +1,7 @@
+{% for key,value in infos.items %}
+    <a href="#" id="title{{ key }}" @click="flag{{ key }} = !flag{{ key }}" class="list-group-item list-group-item-action ">{{ key }}  {{ value.name }}</a>
+
+    {#        <p>#}
+    {#            <button onclick="showContent(this)" type="button" value={{ key }}>{{ key }}</button>#}
+    {#        </p>#}
+{% endfor %}
