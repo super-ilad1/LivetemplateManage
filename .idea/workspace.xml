@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9b8273ee-50a7-4cef-b590-e14353df9f44" name="Default Changelist" comment="" />
+    <list default="true" id="9b8273ee-50a7-4cef-b590-e14353df9f44" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/execution/execution.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangoTest5/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangoTest5/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangoTest5/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangoTest5/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,39 +73,44 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="Python Script" />
         <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1UJp71QJNfHPK00dMpuJkgJV9Xh" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.data.extractors.current.id" value="SQL Inserts" />
     <property name="full.screen.before.presentation.mode" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../example" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../django_server_test" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="File.Encoding" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\肖洪才\PycharmProjects\liveTemplateManage\static\codeMirror" />
+      <recent name="C:\Users\肖洪才\PycharmProjects\liveTemplateManage\templates" />
+      <recent name="C:\Users\肖洪才\PycharmProjects\djangoTest5" />
+      <recent name="C:\Users\肖洪才\PycharmProjects\djangoTest5\firstApp\static" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\肖洪才\PycharmProjects\liveTemplateManage\static\scrollbar" />
       <recent name="C:\Users\肖洪才\PycharmProjects\liveTemplateManage\static\codeMirror" />
       <recent name="C:\Users\肖洪才\PycharmProjects\liveTemplateManage\static\codeMirror\mode" />
       <recent name="C:\Users\肖洪才\PycharmProjects\liveTemplateManage\static" />
       <recent name="C:\Users\肖洪才\PycharmProjects\liveTemplateManage\templates" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\肖洪才\PycharmProjects\liveTemplateManage\static\codeMirror" />
-      <recent name="C:\Users\肖洪才\PycharmProjects\liveTemplateManage\templates" />
-      <recent name="C:\Users\肖洪才\PycharmProjects\djangoTest5" />
-      <recent name="C:\Users\肖洪才\PycharmProjects\djangoTest5\firstApp\static" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -114,6 +126,28 @@
     </option>
   </component>
   <component name="RunManager" selected="Django server.djangoTest5">
+    <configuration name="execution" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="djangoTest5" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/execution" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/execution/execution.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="models" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="djangoTest5" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -184,6 +218,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.execution" />
         <item itemvalue="Python.models" />
         <item itemvalue="Python.test" />
       </list>
@@ -265,14 +300,32 @@
       <workItem from="1577621060940" duration="5308000" />
       <workItem from="1577667186162" duration="19808000" />
       <workItem from="1577708200464" duration="1382000" />
-      <workItem from="1577753548577" duration="598000" />
+      <workItem from="1577753548577" duration="3004000" />
+      <workItem from="1577761535600" duration="4795000" />
+      <workItem from="1577868690286" duration="2995000" />
+      <workItem from="1577927305645" duration="1664000" />
+      <workItem from="1577938273679" duration="1740000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/liveTemplateManage$execution.coverage" NAME="execution Coverage Results" MODIFIED="1577765037759" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/execution" />
     <SUITE FILE_PATH="coverage/liveTemplateManage$test.coverage" NAME="test Coverage Results" MODIFIED="1576121083902" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/templates" />
     <SUITE FILE_PATH="coverage/liveTemplateManage$models.coverage" NAME="models Coverage Results" MODIFIED="1577451970083" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/firstApp" />
   </component>

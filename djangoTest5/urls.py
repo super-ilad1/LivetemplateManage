@@ -25,6 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/<fileName>/', views.home,name='home'),
     path('home/', views.home),
+
     path('newindex/<fileName>/', views.newindex,name='newindex'),
     path('newindex/', views.newindex,name='newindex'),
     path('save/', views.save),
